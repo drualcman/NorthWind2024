@@ -1,4 +1,4 @@
-﻿namespace NorthWind.Sales.Backend.Presenters;
+﻿namespace Microsoft.Extensions.DependencyInjection;
 public static class DependencyContainer
 {
     public static IServiceCollection AddPresenters(this IServiceCollection services)

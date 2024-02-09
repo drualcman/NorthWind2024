@@ -1,4 +1,6 @@
-﻿namespace NorthWind.Sales.Bacnkend.Repositories.Repositories;
+﻿using NorthWind.Sales.Backend.Repositories.Interfaces;
+
+namespace NorthWind.Sales.Backend.Repositories.Repositories;
 internal class CommansRepository(INorthWindSalesCommandsDataContext Context) : ICommandsRepository
 {
     public async Task CreateOrder(OrderAgregate order)

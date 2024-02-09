@@ -1,4 +1,4 @@
-﻿namespace NorthWind.Sales.Bacnkend.Repositories.Entities;
+﻿namespace NorthWind.Sales.Backend.Repositories.Entities;
 public class OrderDetail
 {
     public int OrderID { get; set; }

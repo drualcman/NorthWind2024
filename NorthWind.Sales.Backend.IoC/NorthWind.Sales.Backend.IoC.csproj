@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NorthWind.Sales.Backend.Controllers\NorthWind.Sales.Backend.Controllers.csproj" />
+    <ProjectReference Include="..\NorthWind.Sales.Backend.DataContext.EFCore\NorthWind.Sales.Backend.DataContext.EFCore.csproj" />
+    <ProjectReference Include="..\NorthWind.Sales.Backend.UseCases\NorthWind.Sales.Backend.UseCases.csproj" />
+    <ProjectReference Include="..\NorthWind.Sales.Bacnkend.Repositories\NorthWind.Sales.Backend.Repositories.csproj" />
+    <ProjectReference Include="..\NorthWind.Sales.Presenters\NorthWind.Sales.Backend.Presenters.csproj" />
+  </ItemGroup>
+
+</Project>

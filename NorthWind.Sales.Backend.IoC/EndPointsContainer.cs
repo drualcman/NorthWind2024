@@ -1,7 +1,7 @@
 ﻿namespace Microsoft.AspNetCore.Builder;
 public static class EndPointsContainer
 {
-    public static WebApplication MapAppEndpoints(this WebApplication app)
+    public static WebApplication MapNorthWindSalesEndpoints(this WebApplication app)
     {
         app.UseCreateOrderController();
         return app;

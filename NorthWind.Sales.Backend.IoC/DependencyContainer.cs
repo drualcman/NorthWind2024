@@ -1,7 +1,7 @@
 ﻿namespace Microsoft.Extensions.DependencyInjection;
 public static class DependencyContainer
 {
-    public static IServiceCollection AddBackendServices(this IServiceCollection services,
+    public static IServiceCollection AddNorthWindSalesServices(this IServiceCollection services,
         Action<DbOptions> configureDbOptions)
     {
         services

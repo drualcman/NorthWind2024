@@ -15,9 +15,9 @@ namespace NorthWind.Sales.Backend.DataContext.EFCore.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", fixedLength: true, maxLength: 5, nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerId = table.Column<string>(type: "nchar(5)", fixedLength: true, maxLength: 5, nullable: false),
                     ShipAddress = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
                     ShipCity = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
                     ShipCountry = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),

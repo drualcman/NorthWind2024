@@ -12,7 +12,7 @@ using NorthWind.Sales.Backend.DataContext.EFCore.DataContexts;
 namespace NorthWind.Sales.Backend.DataContext.EFCore.Migrations
 {
     [DbContext(typeof(NorthWindContext))]
-    [Migration("20240209031702_InitialCreate")]
+    [Migration("20240214032600_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -29,14 +29,15 @@ namespace NorthWind.Sales.Backend.DataContext.EFCore.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(5)
-                        .HasColumnType("int")
-                        .IsFixedLength();
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CustomerId")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("nchar(5)")
+                        .IsFixedLength();
 
                     b.Property<double>("Discount")
                         .HasColumnType("float");

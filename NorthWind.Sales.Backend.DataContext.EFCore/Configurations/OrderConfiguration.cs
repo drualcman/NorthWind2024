@@ -3,8 +3,8 @@
 internal class OrderConfiguration : IEntityTypeConfiguration<Order>
 {
     public void Configure(EntityTypeBuilder<Order> builder)
-    {
-        builder.Property(o => o.Id)
+    {                             
+        builder.Property(o => o.CustomerId)
             .IsRequired()
             .HasMaxLength(5)
             .IsFixedLength();

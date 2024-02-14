@@ -1,9 +1,10 @@
 ﻿namespace Microsoft.Extensions.DependencyInjection;
 public static class DependencyContainer
 {
-    public static IServiceCollection AddDbContexts(this IServiceCollection services)
+    public static IServiceCollection AddDataContexts(this IServiceCollection services, 
+        Action<DbOptions> configureDbOptions)
     {
-        services.AddDbContext<NorthWindSalesContext>();
+        services.Configure<DbOptions>(configureDbOptions);
         services.AddScoped<INorthWindSalesCommandsDataContext, NorthWindSalesCommandsDataContext>();
         return services;
     }

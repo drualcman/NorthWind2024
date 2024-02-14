@@ -1,19 +1,12 @@
 ﻿namespace NorthWind.Sales.Backend.DataContext.EFCore.Services;
-internal class NorthWindSalesCommandsDataContext(NorthWindSalesContext DbContext) : INorthWindSalesCommandsDataContext
-{       
+internal class NorthWindSalesCommandsDataContext(IOptions<DbOptions> options) : NorthWindSalesContext(options), INorthWindSalesCommandsDataContext
+{ 
+    public async Task AddOrderAsync(Order order) =>
+        await AddAsync(order);
 
-    public async Task AddOrderAsync(Order order)
-    {
-        await DbContext.Orders.AddAsync(order);
-    }
+    public async Task AddOrderDetailsAsync(IEnumerable<OrderDetail> orderDetails)=>
+        await AddRangeAsync(orderDetails);
 
-    public async Task AddOrderDetailsAsync(IEnumerable<OrderDetail> orderDetails)
-    {
-        await DbContext.OrderDetails.AddRangeAsync(orderDetails);
-    }
-
-    public async Task SaveChangesAsync()
-    {
-        await DbContext.AddRangeAsync();
-    }
+    public async Task SaveChangesAsync() =>
+        await base.SaveChangesAsync();
 }

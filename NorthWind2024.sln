@@ -51,7 +51,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{9E8EE655
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Razor.Components", "NorthWind.Razor.Components\NorthWind.Razor.Components.csproj", "{65617973-53A6-4320-913C-533981139706}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Sales.Frontend.Views", "NorthWind.Sales.Frontend.Views\NorthWind.Sales.Frontend.Views.csproj", "{AC5FA218-CBC2-4D4E-94E6-08C67FBF5B7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Sales.Frontend.Views", "NorthWind.Sales.Frontend.Views\NorthWind.Sales.Frontend.Views.csproj", "{AC5FA218-CBC2-4D4E-94E6-08C67FBF5B7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

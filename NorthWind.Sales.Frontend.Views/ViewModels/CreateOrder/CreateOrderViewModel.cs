@@ -1,5 +1,5 @@
 ﻿namespace NorthWind.Sales.Frontend.Views.ViewModels.CreateOrder;
-internal class CreateOrderViewModel(ICreateOrderGateway Gateway)
+public class CreateOrderViewModel(ICreateOrderGateway Gateway)
 {
     public string CustomerId { get; set; }
     public string ShipAddress { get; set; }

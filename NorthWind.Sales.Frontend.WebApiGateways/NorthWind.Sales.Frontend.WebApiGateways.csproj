@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NorthWind.Sales.Frondend.BusinessObjects\NorthWind.Sales.Frondend.BusinessObjects.csproj" />
+    <ProjectReference Include="..\NorthWind.Sales.Frondend.BusinessObjects\NorthWind.Sales.Frontend.BusinessObjects.csproj" />
   </ItemGroup>
 
 </Project>

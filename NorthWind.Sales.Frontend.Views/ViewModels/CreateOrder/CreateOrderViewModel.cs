@@ -6,7 +6,7 @@ public class CreateOrderViewModel(ICreateOrderGateway Gateway)
     public string ShipCity { get; set; }
     public string ShipCountry { get; set; }
     public string ShipPostalcode { get; set; }
-    public List<CreateOrderDetailViewModel> OrderDetails { get; set; }
+    public List<CreateOrderDetailViewModel> OrderDetails { get; set; } = [];
 
     public string InformationMessage { get; private set; }
     public void AddNewOrderDetailItem()

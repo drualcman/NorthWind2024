@@ -1,4 +1,6 @@
-﻿namespace NorthWind.Sales.Frontend.WebApiGateways;
+﻿using NorthWind.Sales.Frontend.BusinessObjects.Interfaces;
+
+namespace NorthWind.Sales.Frontend.WebApiGateways;
 
 internal class CreateOrderGateway(HttpClient Client) : ICreateOrderGateway
 {

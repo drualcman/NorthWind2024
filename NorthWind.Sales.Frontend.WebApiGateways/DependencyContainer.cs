@@ -1,4 +1,6 @@
-﻿namespace Microsoft.Extensions.DependencyInjection;
+﻿using NorthWind.Sales.Frontend.BusinessObjects.Interfaces;
+
+namespace Microsoft.Extensions.DependencyInjection;
 public static class DependencyContainer
 {
     public static IServiceCollection AddWebApiGateways(this IServiceCollection services,

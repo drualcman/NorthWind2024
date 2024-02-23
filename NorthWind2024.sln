@@ -53,9 +53,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Razor.Components"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Sales.Frontend.Views", "NorthWind.Sales.Frontend.Views\NorthWind.Sales.Frontend.Views.csproj", "{AC5FA218-CBC2-4D4E-94E6-08C67FBF5B7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Sales.Frontend.IoC", "NorthWind.Sales.Frontend.IoC\NorthWind.Sales.Frontend.IoC.csproj", "{B75B0978-F7D6-4E08-B6B8-34ED3FB12476}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Sales.Frontend.IoC", "NorthWind.Sales.Frontend.IoC\NorthWind.Sales.Frontend.IoC.csproj", "{B75B0978-F7D6-4E08-B6B8-34ED3FB12476}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Sales.BlazorClient", "NorthWind.Sales.BlazorClient\NorthWind.Sales.BlazorClient.csproj", "{EC717D47-B1F8-41C7-8D2C-4EC6218709F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Sales.BlazorClient", "NorthWind.Sales.BlazorClient\NorthWind.Sales.BlazorClient.csproj", "{EC717D47-B1F8-41C7-8D2C-4EC6218709F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Sales.MauiClient", "NorthWind.Sales.MauiClient\NorthWind.Sales.MauiClient.csproj", "{0D72D62D-9497-40B2-B92A-563DA08A599B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,12 @@ Global
 		{EC717D47-B1F8-41C7-8D2C-4EC6218709F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC717D47-B1F8-41C7-8D2C-4EC6218709F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC717D47-B1F8-41C7-8D2C-4EC6218709F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D72D62D-9497-40B2-B92A-563DA08A599B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D72D62D-9497-40B2-B92A-563DA08A599B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D72D62D-9497-40B2-B92A-563DA08A599B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0D72D62D-9497-40B2-B92A-563DA08A599B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D72D62D-9497-40B2-B92A-563DA08A599B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D72D62D-9497-40B2-B92A-563DA08A599B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -151,6 +159,7 @@ Global
 		{AC5FA218-CBC2-4D4E-94E6-08C67FBF5B7D} = {9E8EE655-096D-43D2-9507-921953D499AF}
 		{B75B0978-F7D6-4E08-B6B8-34ED3FB12476} = {BBDDFCAB-44A1-4D90-A78D-DA5C782C27FF}
 		{EC717D47-B1F8-41C7-8D2C-4EC6218709F0} = {141162EA-76F1-42AB-B304-89729B7F4694}
+		{0D72D62D-9497-40B2-B92A-563DA08A599B} = {141162EA-76F1-42AB-B304-89729B7F4694}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E479F6E7-8500-40B7-BB9D-3FBB5BD85E48}

@@ -6,12 +6,12 @@ public abstract class AbstractModelValidator<T>(
 {
     public ValidationConstraint Constraint => constraint;
 
-    public IEnumerable<ValidationError> Error { get; private set; }
+    public IEnumerable<ValidationError> Errors { get; private set; }
 
     public async Task<bool> Validate(T model)
     {
-        Error = await validationService.Validate(model);
-        return Error == default;
+        Errors = await validationService.Validate(model);
+        return Errors == default;
     }
 
     protected IValidationRules<T, TProperty> AddRuleFor<TProperty>(

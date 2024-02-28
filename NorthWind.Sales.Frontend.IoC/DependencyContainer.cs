@@ -6,7 +6,8 @@ public static class DependencyContainer
     {
         services
             .AddWebApiGateways(configureHttpClient)
-            .AddViewsServices();
+            .AddViewsServices()
+            .AddValidators();
         return services;
     }
 }

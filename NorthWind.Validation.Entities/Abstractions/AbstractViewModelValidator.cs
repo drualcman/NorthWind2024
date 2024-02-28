@@ -5,7 +5,7 @@ public abstract class AbstractViewModelValidator<DtoType, ViewModelType>
 {
     public ValidationConstraint Constraint => constraint;
 
-    public IEnumerable<ValidationError> Error => dtoModelValidatorHub.Errors;
+    public IEnumerable<ValidationError> Errors => dtoModelValidatorHub.Errors;
 
     public virtual DtoType Cast(ViewModelType viewModel)
     {

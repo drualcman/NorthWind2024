@@ -23,7 +23,7 @@ internal class ModelValidatorHub<ModelType>(
             {
                 if (!await validator.Validate(model))
                 {
-                    currentErrors.AddRange(validator.Error);
+                    currentErrors.AddRange(validator.Errors);
                 }
             }
         }

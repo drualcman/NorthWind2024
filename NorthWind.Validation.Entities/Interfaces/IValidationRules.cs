@@ -11,5 +11,5 @@ public interface IValidationRules<T, TProperty>
     IValidationRules<T, string> Length(int lenght, string errorMessage);
     IValidationRules<T, string> MaximumLength(int lenght, string errorMessage);
     IValidationRules<T, string> MinimumLength(int lenght, string errorMessage);
-    IValidationRules<T, string> EmailAddress(int lenght, string errorMessage);
+    IValidationRules<T, string> EmailAddress(string errorMessage);
 }

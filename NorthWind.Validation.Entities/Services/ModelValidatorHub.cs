@@ -28,6 +28,6 @@ internal class ModelValidatorHub<ModelType>(
             }
         }
         Errors = currentErrors;
-        return !Errors.Any();
+        return Errors.Any();
     }
 }

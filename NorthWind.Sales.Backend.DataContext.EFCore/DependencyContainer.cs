@@ -6,6 +6,7 @@ public static class DependencyContainer
     {
         services.Configure<DbOptions>(configureDbOptions);
         services.AddScoped<INorthWindSalesCommandsDataContext, NorthWindSalesCommandsDataContext>();
+        services.AddScoped<INorthWindSalesQueriesDataContext, NorthWindSalesQueriesDataContexts>();
         return services;
     }
 }

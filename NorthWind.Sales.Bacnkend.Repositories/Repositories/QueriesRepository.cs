@@ -11,8 +11,11 @@ internal class QueriesRepository(INorthWindSalesQueriesDataContext Context) : IQ
         return result?.CurrentBallance;
     }
 
-    public async Task<IEnumerable<ProductUnitsInStock>> GetProductsUnitsInStockAsync(IEnumerable<int> productId)
+    public async Task<IEnumerable<ProductUnitsInStock>> GetProductsUnitsInStockAsync(IEnumerable<int> productIds)
     {
-        throw new NotImplementedException();
+        IQueryable<ProductUnitsInStock> queriable = Context.Products
+            .Where(p => productIds.Contains(p.Id))
+            .Select(p => new ProductUnitsInStock(p.Id, p.UnitInStock));
+        return await Context.ToListAsync(queriable);
     }
 }

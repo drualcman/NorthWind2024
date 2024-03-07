@@ -7,5 +7,9 @@ internal class OrderDetailConfiguration : IEntityTypeConfiguration<OrderDetail>
         
         builder.Property(d => d.UnitPrice)
             .HasPrecision(8, 2);
+
+        builder.HasOne<Product>()
+            .WithMany()
+            .HasForeignKey(d => d.ProductId);
     }
 }

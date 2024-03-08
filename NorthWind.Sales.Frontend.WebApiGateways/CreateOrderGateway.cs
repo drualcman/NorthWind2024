@@ -1,6 +1,4 @@
-﻿using NorthWind.Sales.Frontend.BusinessObjects.Interfaces;
-
-namespace NorthWind.Sales.Frontend.WebApiGateways;
+﻿namespace NorthWind.Sales.Frontend.WebApiGateways;
 
 internal class CreateOrderGateway(HttpClient Client) : ICreateOrderGateway
 {
@@ -8,9 +6,13 @@ internal class CreateOrderGateway(HttpClient Client) : ICreateOrderGateway
     {
         int orderId = 0;
         HttpResponseMessage response = await Client.PostAsJsonAsync(EndPoints.CreateOrder, order);
-        if(response.IsSuccessStatusCode)
+        if (response.IsSuccessStatusCode)
         {
             orderId = await response.Content.ReadFromJsonAsync<int>();
+        }
+        else
+        {
+            throw new HttpRequestException(await response.Content.ReadAsStringAsync());
         }
         return orderId;
     }

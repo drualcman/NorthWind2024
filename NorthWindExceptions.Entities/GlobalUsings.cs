@@ -1,0 +1,9 @@
+global using NorthWind.Validation.Entities.ValueObjects;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Http;
+global using System.Text.Json;
+global using NorthWindExceptions.Entities.Exceptions;
+global using NorthWindExceptions.Entities.Interfaces;
+global using NorthWindExceptions.Entities.Resources;
+global using Microsoft.Extensions.Logging;
+global using NorthWindExceptions.Entities.Extensions;

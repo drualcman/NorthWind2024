@@ -26,7 +26,7 @@ public class ModelValidator<T> : ComponentBase
                 if (token.EndsWith("]"))
                 {
                     token = token.Substring(0, token.Length - 1);
-                    PropertyInfo propertyInfo = NewModel.GetType().GetProperty(propertyName);
+                    PropertyInfo propertyInfo = NewModel.GetType().GetProperty("Item");
                     Type indexedType = propertyInfo.GetIndexParameters()[0].ParameterType;
                     var indexValue = Convert.ChangeType(token, indexedType);        //convertir a un tipo cualquiera, en este caso siempre int
                     NewModel = propertyInfo.GetValue(NewModel, new object[] { indexValue });
@@ -38,7 +38,7 @@ public class ModelValidator<T> : ComponentBase
                 }
                 token = null;
             }
-        } while (separatorIndex < 0);
+        } while (separatorIndex >= 0);
         return new FieldIdentifier(NewModel, token ?? propertyPath);
     }
 
@@ -83,8 +83,8 @@ public class ModelValidator<T> : ComponentBase
                 }
             }
         }
-        EditContext.NotifyFieldChanged(args.FieldIdentifier);
-        //EditContext.NotifyValidationStateChanged();
+        //EditContext.NotifyFieldChanged(args.FieldIdentifier);
+        EditContext.NotifyValidationStateChanged();
     }
 
     public override async Task SetParametersAsync(ParameterView parameters)

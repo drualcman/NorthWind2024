@@ -1,6 +1,8 @@
 ﻿namespace NorthWind.Sales.Frontend.Views.ViewModels.CreateOrder;
-public class CreateOrderViewModel(ICreateOrderGateway Gateway)
+public class CreateOrderViewModel(ICreateOrderGateway Gateway, IModelValidatorHub<CreateOrderViewModel> validatorHub)
 {
+    public IModelValidatorHub<CreateOrderViewModel> Validator => validatorHub;
+
     public string CustomerId { get; set; }
     public string ShipAddress { get; set; }
     public string ShipCity { get; set; }

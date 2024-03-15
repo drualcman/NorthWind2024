@@ -8,3 +8,4 @@ global using NorthWind.Sales.Backend.DataContext.EFCore.Services;
 global using NorthWind.Sales.Backend.Repositories.Entities;
 global using NorthWind.Sales.Backend.Repositories.Interfaces;
 global using System.Reflection;
+global using NorthWind.Sales.Backend.DataContext.EFCore.Guards;

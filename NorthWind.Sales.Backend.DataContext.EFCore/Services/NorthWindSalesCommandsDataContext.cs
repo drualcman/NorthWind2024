@@ -8,5 +8,5 @@ internal class NorthWindSalesCommandsDataContext(IOptions<DbOptions> options) : 
         await AddRangeAsync(orderDetails);
 
     public async Task SaveChangesAsync() =>
-        await base.SaveChangesAsync();
+        await GuardDBContext.AgainstSaveChangesErrorAsync(this);
 }

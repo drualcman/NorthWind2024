@@ -1,4 +1,4 @@
-﻿namespace NorthWindExceptions.Entities.Extensions;
+﻿namespace NorthWind.Exceptions.Entities.Extensions;
 internal static class HttpContextExcentions
 {
     public static async ValueTask WriteProblemDetailsAsync(this HttpContext context, ProblemDetails details)

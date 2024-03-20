@@ -1,4 +1,4 @@
-﻿namespace NorthWindExceptions.Entities.ExceptionHandlers;
+﻿namespace NorthWind.Exceptions.Entities.ExceptionHandlers;
 internal class UnhandledExceptionHandler(ILogger<UnhandledExceptionHandler> Logger) : Microsoft.AspNetCore.Diagnostics.IExceptionHandler
 {
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)

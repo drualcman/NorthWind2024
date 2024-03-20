@@ -1,4 +1,4 @@
-﻿namespace NorthWindExceptions.Entities.ExceptionHandlers;
+﻿namespace NorthWind.Exceptions.Entities.ExceptionHandlers;
 internal class ValidationExceptionHandler : Microsoft.AspNetCore.Diagnostics.IExceptionHandler
 {
 

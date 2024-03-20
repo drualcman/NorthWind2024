@@ -1,4 +1,4 @@
-﻿namespace NorthWindExceptions.Entities.Exceptions;
+﻿namespace NorthWind.Exceptions.Entities.Exceptions;
 public class UpdateException : Exception
 {
     public UpdateException()

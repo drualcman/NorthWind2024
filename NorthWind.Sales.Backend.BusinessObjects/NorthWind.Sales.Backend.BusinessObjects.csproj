@@ -8,7 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\NorthWind.Sales.Entities\NorthWind.Sales.Entities.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Validators.Entities\NorthWind.Sales.Validators.Entities.csproj" />
-    <ProjectReference Include="..\NorthWindExceptions.Entities\NorthWindExceptions.Entities.csproj" />
+    <ProjectReference Include="..\NorthWindExceptions.Entities\NorthWind.Exceptions.Entities.csproj" />
   </ItemGroup>
 
 </Project>

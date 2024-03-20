@@ -1,4 +1,4 @@
-﻿using NorthWindExceptions.Entities.Exceptions;
+﻿using NorthWind.Exceptions.Entities.Exceptions;
 
 namespace NorthWind.Sales.Backend.BusinessObjects.Guards;
 public static class GuardModel

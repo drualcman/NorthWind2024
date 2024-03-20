@@ -1,4 +1,4 @@
-﻿using NorthWindExceptions.Entities.Exceptions;
+﻿using NorthWind.Exceptions.Entities.Exceptions;
 
 namespace NorthWind.Sales.Backend.DataContext.EFCore.Guards;
 internal static class GuardDBContext

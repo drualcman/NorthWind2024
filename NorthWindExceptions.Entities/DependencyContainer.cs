@@ -1,4 +1,4 @@
-﻿using NorthWindExceptions.Entities.ExceptionHandlers;
+﻿using NorthWind.Exceptions.Entities.ExceptionHandlers;
 
 namespace Microsoft.Extensions.DependencyInjection;
 public static class DependencyContainer

@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NorthWind.HttpDelegatingHandlers\NorthWind.HttpDelegatingHandlers.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Frondend.BusinessObjects\NorthWind.Sales.Frontend.BusinessObjects.csproj" />
   </ItemGroup>
 

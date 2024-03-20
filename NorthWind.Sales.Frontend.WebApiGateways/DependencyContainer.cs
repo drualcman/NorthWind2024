@@ -1,13 +1,12 @@
-﻿using NorthWind.Sales.Frontend.BusinessObjects.Interfaces;
-
-namespace Microsoft.Extensions.DependencyInjection;
+﻿namespace Microsoft.Extensions.DependencyInjection;
 public static class DependencyContainer
 {
     public static IServiceCollection AddWebApiGateways(this IServiceCollection services,
         Action<HttpClient> configureHttpClient)
     {
-        services.AddHttpClient();
-        services.AddHttpClient<ICreateOrderGateway, CreateOrderGateway>(configureHttpClient);
+        services.AddExceptionDelegatingHandler();
+        services.AddHttpClient<ICreateOrderGateway, CreateOrderGateway>(configureHttpClient)
+            .AddHttpMessageHandler<ExceptionDelegatingHandler>();
         return services;
     }
 }

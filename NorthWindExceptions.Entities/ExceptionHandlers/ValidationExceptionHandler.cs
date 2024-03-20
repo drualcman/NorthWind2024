@@ -1,17 +1,27 @@
 ﻿namespace NorthWindExceptions.Entities.ExceptionHandlers;
-internal class ValidationExceptionHandler : IExceptionHandler<ValidationException>
+internal class ValidationExceptionHandler : Microsoft.AspNetCore.Diagnostics.IExceptionHandler
 {
-    public ProblemDetails Handle(ValidationException exception)
+
+    public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
-        ProblemDetails details = new ProblemDetails();
+        bool handled = false;
 
-        details.Status = StatusCodes.Status400BadRequest;
-        details.Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1";
-        details.Title = ExceptionMessages.ValidationExceptionTitle;
-        details.Detail = ExceptionMessages.ValidationExceptionDetail;
-        details.Instance = $"{nameof(ProblemDetails)}/{nameof(ValidationException)}";
-        details.Extensions.Add("errors", exception.Errors);
+        if(exception is ValidationException ex)
+        {
+            ProblemDetails details = new ProblemDetails();
 
-        return details;
+            details.Status = StatusCodes.Status400BadRequest;
+            details.Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1";
+            details.Title = ExceptionMessages.ValidationExceptionTitle;
+            details.Detail = ExceptionMessages.ValidationExceptionDetail;
+            details.Instance = $"{nameof(ProblemDetails)}/{nameof(ValidationException)}";
+            details.Extensions.Add("errors", ex.Errors);
+
+            await httpContext.WriteProblemDetailsAsync(details);
+
+            handled = true;
+        }
+
+        return handled;
     }
 }

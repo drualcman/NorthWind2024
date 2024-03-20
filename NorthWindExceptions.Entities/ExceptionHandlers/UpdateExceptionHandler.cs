@@ -1,18 +1,28 @@
-﻿namespace NorthWindExceptions.Entities.ExceptionHandlers;
-internal class UpdateExceptionHandler(ILogger<UpdateExceptionHandler> Logger) : IExceptionHandler<UpdateException>
+﻿
+namespace NorthWindExceptions.Entities.ExceptionHandlers;
+internal class UpdateExceptionHandler(ILogger<UpdateExceptionHandler> Logger) : Microsoft.AspNetCore.Diagnostics.IExceptionHandler
 {
-    public ProblemDetails Handle(UpdateException exception)
+    public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
-        ProblemDetails details = new ProblemDetails();
+        bool handled = false;
 
-        details.Status = StatusCodes.Status500InternalServerError;
-        details.Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.1";
-        details.Title = ExceptionMessages.UpdateExceptionTitle;
-        details.Detail = ExceptionMessages.UpdateExceptionDetail;
-        details.Instance = $"{nameof(ProblemDetails)}/{nameof(UpdateException)}";
+        if(exception is UpdateException ex)
+        {
+            ProblemDetails details = new ProblemDetails();
 
-        Logger.LogError(exception, ExceptionMessages.UpdateExceptionTitle + ":" + string.Join(' ', exception.Entities));
+            details.Status = StatusCodes.Status500InternalServerError;
+            details.Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.1";
+            details.Title = ExceptionMessages.UpdateExceptionTitle;
+            details.Detail = ExceptionMessages.UpdateExceptionDetail;
+            details.Instance = $"{nameof(ProblemDetails)}/{nameof(UpdateException)}";
 
-        return details;
+            Logger.LogError(exception, ExceptionMessages.UpdateExceptionTitle + ":" + string.Join(' ', ex.Entities));
+
+            await httpContext.WriteProblemDetailsAsync(details);
+
+            handled = true;
+        }
+
+        return handled;
     }
 }

@@ -1,6 +1,10 @@
-﻿namespace NorthWind.Sales.Frontend.Views.ViewModels.CreateOrder;
+﻿using NorthWind.Razor.Components.Validators;
+using NorthWind.Validation.Entities.ValueObjects;
+
+namespace NorthWind.Sales.Frontend.Views.ViewModels.CreateOrder;
 public class CreateOrderViewModel(ICreateOrderGateway Gateway, IModelValidatorHub<CreateOrderViewModel> validatorHub)
 {
+    public ModelValidator<CreateOrderViewModel> ModelValidatorComponentReference { get; set; }
     public IModelValidatorHub<CreateOrderViewModel> Validator => validatorHub;
 
     public string CustomerId { get; set; }
@@ -19,9 +23,25 @@ public class CreateOrderViewModel(ICreateOrderGateway Gateway, IModelValidatorHu
     public async Task Send()
     {
         InformationMessage = string.Empty;
-        int orderId = await Gateway.CreateOrderAsync(
-            (CreateOrderDto)this);
-        InformationMessage = string.Format(CreateOrderMessages.CreateOrderTemplate, orderId);
+        try
+        {
+            int orderId = await Gateway.CreateOrderAsync(
+                (CreateOrderDto)this);
+            InformationMessage = string.Format(CreateOrderMessages.CreateOrderTemplate, orderId);
+        }
+        catch (HttpRequestException ex)
+        {
+            if (ex.Data.Contains("Errors"))
+            {
+                IEnumerable<ValidationError> errors = ex.Data["Errors"] as IEnumerable<ValidationError>;
+                ModelValidatorComponentReference.AddErrors(errors);
+                InformationMessage = ex.Message;
+            }
+            else
+            {
+                throw;
+            }
+        } 
     }
 
     public static explicit operator CreateOrderDto(CreateOrderViewModel model) =>

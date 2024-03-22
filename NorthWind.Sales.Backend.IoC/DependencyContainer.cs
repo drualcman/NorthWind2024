@@ -2,7 +2,8 @@
 public static class DependencyContainer
 {
     public static IServiceCollection AddNorthWindSalesServices(this IServiceCollection services,
-        Action<DbOptions> configureDbOptions)
+        Action<DbOptions> configureDbOptions,
+        Action<SmtpOptions> configureSmtpOptions)
     {
         services
             .AddSalesUseCases()
@@ -14,6 +15,7 @@ public static class DependencyContainer
             .AddValidationExceptionHandler()
             .AddUpdateExceptionHandler()
             .AddUnhandledExceptionHandler()
+            .AddMailServices(configureSmtpOptions)
             .AddEventServices();
         return services;
     }

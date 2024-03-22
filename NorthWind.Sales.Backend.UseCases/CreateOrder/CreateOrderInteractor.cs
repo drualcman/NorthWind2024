@@ -2,7 +2,8 @@
 internal class CreateOrderInteractor(
     ICreateOrderOutputPort OutputPort,
     ICommandsRepository Repository,
-    IModelValidatorHub<CreateOrderDto> ModelValidatorHub
+    IModelValidatorHub<CreateOrderDto> ModelValidatorHub,
+    IDomainEventHub<SpecialOrderCreatedEvent> DomainEventHub
     ) : ICreateOrderInputPort
 {
     public async Task Handle(CreateOrderDto orderDto)
@@ -12,5 +13,8 @@ internal class CreateOrderInteractor(
         await Repository.CreateOrder(order);
         await Repository.SaveChanges();
         await OutputPort.Handle(order);
+        if(order.OrderDetails.Count > 3)
+            await DomainEventHub.Rise(
+                new SpecialOrderCreatedEvent(order.Id, order.OrderDetails.Count));
     }
 }

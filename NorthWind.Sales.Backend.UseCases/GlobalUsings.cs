@@ -9,3 +9,5 @@ global using NorthWind.Validation.Entities.Interfaces;
 global using NorthWind.Validation.Entities.ValueObjects;
 global using NorthWind.Sales.Backend.BusinessObjects.ValueObjects;
 global using NorthWind.Sales.Backend.BusinessObjects.Guards;
+global using NorthWind.Events.Interfaces;
+global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.Common;

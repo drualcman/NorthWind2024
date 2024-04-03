@@ -75,9 +75,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Events", "NorthWi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Sales.Backend.SmtpGatways", "NorthWind.Sales.Backend.SmtpGatways\NorthWind.Sales.Backend.SmtpGatways.csproj", "{9E5D75D6-F9B9-4413-9BD6-32C7B148C1F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.DomainLogs.Entities", "NorthWind.DomainLogs.Entities\NorthWind.DomainLogs.Entities.csproj", "{72651106-E54B-49D3-9B0E-8D2A5484C4C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.DomainLogs.Entities", "NorthWind.DomainLogs.Entities\NorthWind.DomainLogs.Entities.csproj", "{72651106-E54B-49D3-9B0E-8D2A5484C4C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Entities", "NorthWind.Entities\NorthWind.Entities.csproj", "{39826322-D39E-47DA-ABA3-9E2F38332560}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Entities", "NorthWind.Entities\NorthWind.Entities.csproj", "{39826322-D39E-47DA-ABA3-9E2F38332560}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Transactions.Entities", "NorthWind.Transactions.Entities\NorthWind.Transactions.Entities.csproj", "{24EC4A9D-0B83-4CC8-A412-67CDA94EFA1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -187,6 +189,10 @@ Global
 		{39826322-D39E-47DA-ABA3-9E2F38332560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39826322-D39E-47DA-ABA3-9E2F38332560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39826322-D39E-47DA-ABA3-9E2F38332560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24EC4A9D-0B83-4CC8-A412-67CDA94EFA1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24EC4A9D-0B83-4CC8-A412-67CDA94EFA1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24EC4A9D-0B83-4CC8-A412-67CDA94EFA1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24EC4A9D-0B83-4CC8-A412-67CDA94EFA1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -226,6 +232,7 @@ Global
 		{9E5D75D6-F9B9-4413-9BD6-32C7B148C1F0} = {30DC9539-138B-4D5F-A250-0FDE8579583A}
 		{72651106-E54B-49D3-9B0E-8D2A5484C4C2} = {FF09D876-D805-43F6-B267-D196B1DFB280}
 		{39826322-D39E-47DA-ABA3-9E2F38332560} = {FF09D876-D805-43F6-B267-D196B1DFB280}
+		{24EC4A9D-0B83-4CC8-A412-67CDA94EFA1C} = {FF09D876-D805-43F6-B267-D196B1DFB280}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E479F6E7-8500-40B7-BB9D-3FBB5BD85E48}

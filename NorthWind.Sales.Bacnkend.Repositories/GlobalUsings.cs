@@ -5,3 +5,4 @@ global using NorthWind.Sales.Backend.Repositories.Entities;
 global using NorthWind.Sales.Backend.Repositories.Interfaces;
 global using NorthWind.Sales.Backend.Repositories.Repositories;
 global using NorthWind.Sales.Backend.BusinessObjects.ValueObjects;
+global using NorthWind.DomainLogs.Entities.Interfaces;

@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using NorthWind.Entities.Interfaces;
+using System.Net;
 using System.Net.Mail;
 
 namespace NorthWind.Sales.Backend.SmtpGatways;

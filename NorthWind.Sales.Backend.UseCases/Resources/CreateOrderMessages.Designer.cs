@@ -88,6 +88,15 @@ namespace NorthWind.Sales.Backend.UseCases.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Orden de compra {0} creada..
+        /// </summary>
+        internal static string PurchaseOrderCreatedTemplate {
+            get {
+                return ResourceManager.GetString("PurchaseOrderCreatedTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Se ha creado la order {0} con {1} productos..
         /// </summary>
         internal static string SendEmailBodyTemplate {
@@ -102,6 +111,15 @@ namespace NorthWind.Sales.Backend.UseCases.Resources {
         internal static string SendEmailsubject {
             get {
                 return ResourceManager.GetString("SendEmailsubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inicio de creacion de orden de compra..
+        /// </summary>
+        internal static string StartingPurchaseOrderCreation {
+            get {
+                return ResourceManager.GetString("StartingPurchaseOrderCreation", resourceCulture);
             }
         }
         

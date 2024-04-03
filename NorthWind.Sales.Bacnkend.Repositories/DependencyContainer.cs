@@ -5,6 +5,7 @@ public static class DependencyContainer
     {
         services.AddScoped<ICommandsRepository, CommansRepository>();
         services.AddScoped<IQueriesRepository, QueriesRepository>();
+        services.AddScoped<IDomainLogsRepository, DomainLogsRepository>();
         return services;
     }
 }

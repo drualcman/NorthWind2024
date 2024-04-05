@@ -1,5 +1,4 @@
-﻿using NorthWind.Entities.Interfaces;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
 
 namespace NorthWind.Sales.Backend.SmtpGatways;
@@ -12,23 +11,25 @@ internal class MailService(IOptions<SmtpOptions> SmtpOptions, ILogger<MailServic
 {
     public async Task SendMailToAdministrator(string subject, string body)
     {
-		try
-		{
-			MailMessage message = new MailMessage(SmtpOptions.Value.SenderEmail, SmtpOptions.Value.AdministratorEmail);
-			message.Subject = subject;
-			message.Body = body;
+        try
+        {
+            MailMessage message = new MailMessage(SmtpOptions.Value.SenderEmail, SmtpOptions.Value.AdministratorEmail);
+            message.Subject = subject;
+            message.Body = body;
 
-			SmtpClient client = new SmtpClient(SmtpOptions.Value.SmtpHost, SmtpOptions.Value.SmtpHostPort)
-			{
-				Credentials = new NetworkCredential(SmtpOptions.Value.SmtpUserName, SmtpOptions.Value.SmtpPassword),
-				EnableSsl = true
-			};
-			
-			await client.SendMailAsync(message);
-		}
-		catch (Exception ex)
-		{
-			logger.LogError(ex, ex.Message);
-		}
+            SmtpClient client = new SmtpClient(SmtpOptions.Value.SmtpHost, SmtpOptions.Value.SmtpHostPort)
+            {
+                Credentials = new NetworkCredential(SmtpOptions.Value.SmtpUserName, SmtpOptions.Value.SmtpPassword),
+                EnableSsl = true
+            };
+
+            await client.SendMailAsync(message);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, ex.Message);
+            throw;
+        }
+
     }
 }

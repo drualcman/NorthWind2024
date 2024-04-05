@@ -4,7 +4,8 @@ internal class CreateOrderInteractor(
     ICommandsRepository Repository,
     IModelValidatorHub<CreateOrderDto> ModelValidatorHub,
     IDomainEventHub<SpecialOrderCreatedEvent> DomainEventHub,
-    IDomainLogger DomainLogger
+    IDomainLogger DomainLogger,
+    IDomainTransaction DomainTransaction
     ) : ICreateOrderInputPort
 {
     public async Task Handle(CreateOrderDto orderDto)
@@ -14,14 +15,32 @@ internal class CreateOrderInteractor(
         await DomainLogger.LogInformation(new DomainLog(CreateOrderMessages.StartingPurchaseOrderCreation));
 
         OrderAgregate order = OrderAgregate.From(orderDto);
-        await Repository.CreateOrder(order);
-        await Repository.SaveChanges();
 
-        await DomainLogger.LogInformation(new DomainLog(string.Format(CreateOrderMessages.PurchaseOrderCreatedTemplate, order.Id)));
+        try
+        {
+            DomainTransaction.BeginTransaction();
 
-        await OutputPort.Handle(order);
-        if(order.OrderDetails.Count > 3)
-            await DomainEventHub.Rise(
-                new SpecialOrderCreatedEvent(order.Id, order.OrderDetails.Count));
+            await Repository.CreateOrder(order);
+            await Repository.SaveChanges();
+
+            await DomainLogger.LogInformation(new DomainLog(string.Format(CreateOrderMessages.PurchaseOrderCreatedTemplate, order.Id)));
+
+            await OutputPort.Handle(order);
+            if (new SpecialOrderSpecification().IsSatisfiedBy(order))
+            {
+                await DomainEventHub.Rise(
+                    new SpecialOrderCreatedEvent(order.Id, order.OrderDetails.Count));
+            }
+
+            DomainTransaction.CommitTransaction();
+        }
+        catch
+        {
+            DomainTransaction.RollbackTransaction();
+            string information = string.Format(CreateOrderMessages.OrderCreationCancelledTemplate, order.Id);
+            await DomainLogger.LogInformation(new DomainLog(information));
+            throw;
+        }
+
     }
 }

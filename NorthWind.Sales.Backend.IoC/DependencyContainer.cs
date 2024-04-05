@@ -17,7 +17,8 @@ public static class DependencyContainer
             .AddUnhandledExceptionHandler()
             .AddMailServices(configureSmtpOptions)
             .AddEventServices()
-            .AddDomainLogsServices();
+            .AddDomainLogsServices()
+            .AddTransactionServices();
         return services;
     }
 }

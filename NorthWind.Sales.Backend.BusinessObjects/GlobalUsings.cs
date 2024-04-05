@@ -5,3 +5,5 @@ global using NorthWind.Sales.Backend.BusinessObjects.ValueObjects;
 global using NorthWind.Sales.Entities.Dtos.CreateOrder;
 global using NorthWind.Validation.Entities.Interfaces;
 global using NorthWind.Entities.Interfaces;
+global using NorthWind.Entities.Abstractions;
+global using System.Linq.Expressions;

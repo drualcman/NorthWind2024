@@ -5,14 +5,18 @@ internal class CreateOrderInteractor(
     IModelValidatorHub<CreateOrderDto> ModelValidatorHub,
     IDomainEventHub<SpecialOrderCreatedEvent> DomainEventHub,
     IDomainLogger DomainLogger,
-    IDomainTransaction DomainTransaction
+    IDomainTransaction DomainTransaction,
+    IUserService UserService
     ) : ICreateOrderInputPort
 {
     public async Task Handle(CreateOrderDto orderDto)
     {
+        if (!UserService.IsAuthenticated)
+            throw new UnauthorizedAccessException();
+
         await GuardModel.AgainstNotValid(ModelValidatorHub, orderDto);
 
-        await DomainLogger.LogInformation(new DomainLog(CreateOrderMessages.StartingPurchaseOrderCreation));
+        await DomainLogger.LogInformation(new DomainLog(CreateOrderMessages.StartingPurchaseOrderCreation, UserService.UserName));
 
         OrderAgregate order = OrderAgregate.From(orderDto);
 
@@ -23,7 +27,7 @@ internal class CreateOrderInteractor(
             await Repository.CreateOrder(order);
             await Repository.SaveChanges();
 
-            await DomainLogger.LogInformation(new DomainLog(string.Format(CreateOrderMessages.PurchaseOrderCreatedTemplate, order.Id)));
+            await DomainLogger.LogInformation(new DomainLog(string.Format(CreateOrderMessages.PurchaseOrderCreatedTemplate, order.Id), UserService.UserName));
 
             await OutputPort.Handle(order);
             if (new SpecialOrderSpecification().IsSatisfiedBy(order))
@@ -38,7 +42,7 @@ internal class CreateOrderInteractor(
         {
             DomainTransaction.RollbackTransaction();
             string information = string.Format(CreateOrderMessages.OrderCreationCancelledTemplate, order.Id);
-            await DomainLogger.LogInformation(new DomainLog(information));
+            await DomainLogger.LogInformation(new DomainLog(information, UserService.UserName));
             throw;
         }
 

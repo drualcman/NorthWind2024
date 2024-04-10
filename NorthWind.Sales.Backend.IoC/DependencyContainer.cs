@@ -14,11 +14,13 @@ public static class DependencyContainer
             .AddValidationService()
             .AddValidationExceptionHandler()
             .AddUpdateExceptionHandler()
+            .AddUnauthorizedAccessExceptionHandler()
             .AddUnhandledExceptionHandler()
             .AddMailServices(configureSmtpOptions)
             .AddEventServices()
             .AddDomainLogsServices()
-            .AddTransactionServices();
+            .AddTransactionServices()
+            .AddUserServices();
         return services;
     }
 }

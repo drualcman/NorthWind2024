@@ -61,6 +61,24 @@ namespace NorthWind.Exceptions.Entities.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to El acceso al recurso solicitado esta restringido a usuarios autorizados..
+        /// </summary>
+        internal static string UnauthorizedAccessExceptionDetail {
+            get {
+                return ResourceManager.GetString("UnauthorizedAccessExceptionDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acceso no autorizado..
+        /// </summary>
+        internal static string UnauthorizedAccessExceptionTitle {
+            get {
+                return ResourceManager.GetString("UnauthorizedAccessExceptionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Consulte al adminstrador..
         /// </summary>
         internal static string UnhandledExceptionDetail {

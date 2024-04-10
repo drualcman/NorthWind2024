@@ -3,7 +3,8 @@ public static class DependencyContainer
 {
     public static IServiceCollection AddUserServices(this IServiceCollection services)
     {
-        services.AddScoped<IUserService, UserService>();
+        services.AddHttpContextAccessor();
+        services.AddSingleton<IUserService, UserService>();
         return services;
     }
 }

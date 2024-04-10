@@ -81,7 +81,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Entities", "North
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Transactions.Entities", "NorthWind.Transactions.Entities\NorthWind.Transactions.Entities.csproj", "{24EC4A9D-0B83-4CC8-A412-67CDA94EFA1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.UserServices", "NorthWind.UserServices\NorthWind.UserServices.csproj", "{6FB79149-9F16-446F-B37C-6F0037660388}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.UserServices", "NorthWind.UserServices\NorthWind.UserServices.csproj", "{6FB79149-9F16-446F-B37C-6F0037660388}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -239,7 +239,7 @@ Global
 		{72651106-E54B-49D3-9B0E-8D2A5484C4C2} = {FF09D876-D805-43F6-B267-D196B1DFB280}
 		{39826322-D39E-47DA-ABA3-9E2F38332560} = {FF09D876-D805-43F6-B267-D196B1DFB280}
 		{24EC4A9D-0B83-4CC8-A412-67CDA94EFA1C} = {FF09D876-D805-43F6-B267-D196B1DFB280}
-		{6FB79149-9F16-446F-B37C-6F0037660388} = {FF09D876-D805-43F6-B267-D196B1DFB280}
+		{6FB79149-9F16-446F-B37C-6F0037660388} = {722BC75A-660E-403F-9023-B4FEE9ACFA8D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E479F6E7-8500-40B7-BB9D-3FBB5BD85E48}

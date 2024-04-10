@@ -1,6 +1,4 @@
-﻿using NorthWind.Exceptions.Entities.ExceptionHandlers;
-
-namespace Microsoft.Extensions.DependencyInjection;
+﻿namespace Microsoft.Extensions.DependencyInjection;
 public static class DependencyContainer
 {
     public static IServiceCollection AddValidationExceptionHandler(this IServiceCollection services) 
@@ -13,11 +11,16 @@ public static class DependencyContainer
         services.AddExceptionHandler<UpdateExceptionHandler>();
         return services;
     }  
+    public static IServiceCollection AddUnauthorizedAccessExceptionHandler(this IServiceCollection services)
+    {
+        services.AddExceptionHandler<UnauthorizedAccessExceptionHandler>();
+        return services;
+    }
     public static IServiceCollection AddUnhandledExceptionHandler(this IServiceCollection services)
     {
         services.AddExceptionHandler<UnhandledExceptionHandler>();
         return services;
-    }
+    }  
 
     
 }

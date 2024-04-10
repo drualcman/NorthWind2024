@@ -1,23 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Primitives;
+﻿namespace NorthWind.UserServices;
 
-namespace NorthWind.UserServices;
-
-internal class UserService : IUserService
+internal class UserService(IHttpContextAccessor ContextAccessor) : IUserService
 {
-    public bool IsAuthenticated { get; private set; }
+    public bool IsAuthenticated => ContextAccessor.HttpContext.User.Identity.IsAuthenticated;
 
-    public string UserName { get; private set; }
+    public string UserName => ContextAccessor.HttpContext.User.Identity.Name;
 
-    public string FullName { get; private set; }
-
-    public UserService(IHttpContextAccessor contextAccessor)
-    {
-        HttpContext context = contextAccessor.HttpContext;
-        if(context.Request.Headers.TryGetValue("", out StringValues value))
-        {
-            IsAuthenticated = true;
-            UserName = value;
-        }
-    }
+    public string FullName => ContextAccessor.HttpContext.User.Claims
+        .Where(c => c.Type == "FullName")
+        .Select(c => c.Value)
+        .FirstOrDefault();
 }

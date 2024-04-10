@@ -14,6 +14,7 @@
     <ProjectReference Include="..\NorthWind.Sales.Bacnkend.Repositories\NorthWind.Sales.Backend.Repositories.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Presenters\NorthWind.Sales.Backend.Presenters.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Validators.Entities\NorthWind.Sales.Validators.Entities.csproj" />
+    <ProjectReference Include="..\NorthWind.UserServices\NorthWind.UserServices.csproj" />
     <ProjectReference Include="..\NorthWind.ValidationService.FluentValidation\NorthWind.ValidationService.FluentValidation.csproj" />
   </ItemGroup>
 

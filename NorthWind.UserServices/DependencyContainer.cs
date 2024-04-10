@@ -5,6 +5,7 @@ public static class DependencyContainer
     {
         services.AddHttpContextAccessor();
         services.AddSingleton<IUserService, UserService>();
+        //services.AddSingleton<IUserService, UserServiceFake>();
         return services;
     }
 }

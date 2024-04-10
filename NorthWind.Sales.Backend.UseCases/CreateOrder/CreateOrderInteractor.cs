@@ -11,8 +11,7 @@ internal class CreateOrderInteractor(
 {
     public async Task Handle(CreateOrderDto orderDto)
     {
-        if (!UserService.IsAuthenticated)
-            throw new UnauthorizedAccessException();
+        GuardUser.AgainstUnauthenticated(UserService);
 
         await GuardModel.AgainstNotValid(ModelValidatorHub, orderDto);
 

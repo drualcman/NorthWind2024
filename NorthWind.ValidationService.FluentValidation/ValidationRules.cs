@@ -4,14 +4,14 @@ internal class ValidationRules<T, TProperty>(IRuleBuilderInitial<T, TProperty> R
 {
     IRuleBuilder<T, string> StringRuleBuilder => (IRuleBuilder<T, string>) RuleBuilderInitial;
 
-    IValidationRules<T, string> ThisAsStringValidationSules => (IValidationRules<T, string>)this;
+    IValidationRules<T, string> ThisAsStringValidationRules => (IValidationRules<T, string>)this;
 
     public IValidationRules<T, string> EmailAddress(string errorMessage)
     {
         StringRuleBuilder
             .EmailAddress()
             .WithMessage(errorMessage);
-        return ThisAsStringValidationSules;
+        return ThisAsStringValidationRules;
     }
 
     public IValidationRules<T, TProperty> Equal(Expression<Func<T, TProperty>> expresion, string errorMessage)
@@ -36,7 +36,7 @@ internal class ValidationRules<T, TProperty>(IRuleBuilderInitial<T, TProperty> R
         StringRuleBuilder
             .Length(lenght)
             .WithMessage(errorMessage);
-        return ThisAsStringValidationSules;
+        return ThisAsStringValidationRules;
     }
 
     public IValidationRules<T, string> MaximumLength(int lenght, string errorMessage)
@@ -44,7 +44,7 @@ internal class ValidationRules<T, TProperty>(IRuleBuilderInitial<T, TProperty> R
         StringRuleBuilder
             .MaximumLength(lenght)
             .WithMessage(errorMessage);
-        return ThisAsStringValidationSules;
+        return ThisAsStringValidationRules;
     }
 
     public IValidationRules<T, string> MinimumLength(int lenght, string errorMessage)
@@ -52,7 +52,7 @@ internal class ValidationRules<T, TProperty>(IRuleBuilderInitial<T, TProperty> R
         StringRuleBuilder
             .MinimumLength(lenght)
             .WithMessage(errorMessage);
-        return ThisAsStringValidationSules;
+        return ThisAsStringValidationRules;
     }
 
     public IValidationRules<T, TProperty> Must(Func<TProperty, bool> predicate, string errorMessage)

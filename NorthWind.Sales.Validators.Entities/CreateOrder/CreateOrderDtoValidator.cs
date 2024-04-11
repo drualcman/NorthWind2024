@@ -1,6 +1,6 @@
 ﻿namespace NorthWind.Sales.Validators.Entities.CreateOrder;
 
-public class CreateOrderDtoValidator :
+internal class CreateOrderDtoValidator :
     AbstractModelValidator<CreateOrderDto>
 {
     public CreateOrderDtoValidator(IValidationService<CreateOrderDto> validationService,
@@ -30,7 +30,7 @@ public class CreateOrderDtoValidator :
 
         AddRuleFor(c => c.OrderDetails)
             .NotNull(CreateOrderMessages.OrdersDetailsRequiered)
-            .NotNull(CreateOrderMessages.OrderDetailsNotEmpty);
+            .NotEmpty(CreateOrderMessages.OrderDetailsNotEmpty);
 
         AddRuleForEach(d => d.OrderDetails)
             .SetValidator(detailValidator);

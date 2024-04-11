@@ -1,5 +1,6 @@
 ﻿namespace NorthWind.Sales.Backend.UseCases.CreateOrder;
-internal class CreateOrderProductValidator(IQueriesRepository Repository) : IModelValidator<CreateOrderDto>
+internal class CreateOrderProductValidator(IQueriesRepository Repository) :
+    IModelValidator<CreateOrderDto>
 {
     readonly List<ValidationError> ErrorsField = [];
     public ValidationConstraint Constraint => ValidationConstraint.ValidateIfThereAreNoPreviousErrors;

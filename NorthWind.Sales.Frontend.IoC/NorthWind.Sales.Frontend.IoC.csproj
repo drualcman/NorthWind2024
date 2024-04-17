@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NorthWind.Membership.Frondend.RazorViews" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NorthWind.Sales.Frontend.Views\NorthWind.Sales.Frontend.Views.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Frontend.WebApiGateways\NorthWind.Sales.Frontend.WebApiGateways.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Validators.Entities\NorthWind.Sales.Validators.Entities.csproj" />

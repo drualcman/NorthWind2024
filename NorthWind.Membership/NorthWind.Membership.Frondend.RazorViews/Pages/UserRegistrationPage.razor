@@ -1,0 +1,13 @@
+﻿@page "/user/register"
+
+<ErrorBoundary @ref=ErrorBoundoryRef>
+    <ChildContent>
+        <UserRegistrationComponent ViewModel=ViewModel />
+    </ChildContent>
+    <ErrorContent>
+        <NorthWind.Razor.Components.Exceptions.ExceptionDisplay Exception="context" />
+        <button class="btn bt-danger" @onclick=Recover>
+            @CommonMessages.OK
+        </button>
+    </ErrorContent>
+</ErrorBoundary>

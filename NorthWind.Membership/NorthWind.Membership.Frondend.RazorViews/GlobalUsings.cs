@@ -1,0 +1,15 @@
+global using NorthWind.HttpDelegatingHandlers;
+global using NorthWind.Membership.Entities.Dtos.UserRegistration;
+global using NorthWind.Membership.Entities.ValueObjects;
+global using NorthWind.Membership.Frondend.RazorViews.Resources;
+global using NorthWind.Membership.Frondend.RazorViews.ViewModels.UserRegistration;
+global using NorthWind.Membership.Frondend.RazorViews.WebApiGateways;
+global using NorthWind.Validation.Entities.Abstractions;
+global using NorthWind.Validation.Entities.Enums;
+global using NorthWind.Validation.Entities.Interfaces;
+global using System.Net.Http.Json;
+global using Microsoft.AspNetCore.Components;
+global using Microsoft.AspNetCore.Components.Web;
+global using System.Reflection;
+global using NorthWind.Razor.Components.Validators;
+global using NorthWind.Validation.Entities.ValueObjects;

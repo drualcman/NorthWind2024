@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Membership.Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Membership.Backend.Core", "NorthWind.Membership.Backend.Core\NorthWind.Membership.Backend.Core.csproj", "{D7DC17F0-326E-4D28-80AA-D2FC5188CD93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthdWind.Membership.Backend.AspNetIdentity", "NorthdWind.Membership.Backend.AspNetIdentity\NorthdWind.Membership.Backend.AspNetIdentity.csproj", "{DE3614B0-99B3-4B12-9A6D-D63672420C48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Membership.Backend.AspNetIdentity", "NorthdWind.Membership.Backend.AspNetIdentity\NorthWind.Membership.Backend.AspNetIdentity.csproj", "{DE3614B0-99B3-4B12-9A6D-D63672420C48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

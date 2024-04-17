@@ -3,7 +3,8 @@ public static class DependencyContainer
 {
     public static IServiceCollection AddNorthWindSalesServices(this IServiceCollection services,
         Action<DbOptions> configureDbOptions,
-        Action<SmtpOptions> configureSmtpOptions)
+        Action<SmtpOptions> configureSmtpOptions,
+        Action<MembershipDbOptions> configureMembershipDbOptions)
     {
         services
             .AddSalesUseCases()
@@ -20,7 +21,9 @@ public static class DependencyContainer
             .AddEventServices()
             .AddDomainLogsServices()
             .AddTransactionServices()
-            .AddUserServices();
+            .AddUserServices()
+            .AddMembershipCoreServices()
+            .AddMembershipIdentityServices(configureMembershipDbOptions);
         return services;
     }
 }

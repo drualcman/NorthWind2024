@@ -1,6 +1,4 @@
-﻿using NorthWind.Sales.Backend.SmtpGatways.Options;
-
-namespace NorthWind.Sales.WebApi;
+﻿namespace NorthWind.Sales.WebApi;
 
 public static class Startup
 {
@@ -10,7 +8,8 @@ public static class Startup
         builder.Services.AddSwaggerGen();
         builder.Services.AddNorthWindSalesServices(
             dbOptions => builder.Configuration.GetSection(DbOptions.SectionKey).Bind(dbOptions),
-            smtoOptions => builder.Configuration.GetSection(SmtpOptions.SectionKey).Bind(smtoOptions));
+            smtoOptions => builder.Configuration.GetSection(SmtpOptions.SectionKey).Bind(smtoOptions),
+            membershipOptions => builder.Configuration.GetSection(MembershipDbOptions.SectionKey).Bind(membershipOptions));
         builder.Services.AddCors(options => 
         {
             options.AddDefaultPolicy(config => 

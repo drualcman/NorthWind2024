@@ -8,6 +8,7 @@ public static class DependencyContainer
         services.AddDefaultModelValidatorServices();
         services.AddScoped<IUserRegistrationInputPort, UserRegistrationInteractor>();
         services.AddScoped<IUserRegistrationOutputPort, UserRegistrationPresenter>();
+        services.AddScoped<IUserLoginInputPort, UserLoginInteractor>();
         return services;
     }
 }

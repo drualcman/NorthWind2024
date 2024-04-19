@@ -1,10 +1,11 @@
-﻿namespace Microsoft.AspNetCore.Builder;
+﻿namespace NorthWind.Membership.Backend.Core;
 
 public static class EndpointsContainer
 {
     public static WebApplication UseMembershipEndpoints(this WebApplication app)
     {
-        app.UseUserRegistration();
+        app.UseUserRegistrationController();
+        app.UseUserLoginController();
         return app;
     }
 }

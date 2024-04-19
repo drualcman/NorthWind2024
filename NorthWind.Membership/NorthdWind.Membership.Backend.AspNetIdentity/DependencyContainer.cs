@@ -1,8 +1,10 @@
-﻿namespace Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace NorthWind.Membership.Backend.AspNetIdentity;
 
 public static class DependencyContainer
 {
-    public static IServiceCollection AddMembershipIdentityServices(this IServiceCollection services, 
+    public static IServiceCollection AddMembershipIdentityServices(this IServiceCollection services,
         Action<MembershipDbOptions> configureMembershipDbOptions)
     {
         services.Configure(configureMembershipDbOptions);

@@ -1,9 +1,7 @@
-﻿using NorthWind.Membership.Entities.ValueObjects;
-
-namespace Microsoft.AspNetCore.Builder;
+﻿namespace NorthWind.Membership.Backend.Core.Controllers.UserRegistration;
 internal static class UserRegistrationController
 {
-    public static WebApplication UseUserRegistration(this WebApplication app)
+    public static WebApplication UseUserRegistrationController(this WebApplication app)
     {
         app.MapPost(Endpoints.Register, async (UserRegistrationDto userData, IUserRegistrationInputPort inputPort, IUserRegistrationOutputPort presenter) =>
         {
@@ -11,5 +9,5 @@ internal static class UserRegistrationController
             return presenter.Result;
         });
         return app;
-    } 
+    }
 }

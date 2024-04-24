@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,9 +13,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="NorthWind.Membership.Backend.Core" Version="1.0.0" />
-    <PackageReference Include="NorthWind.Membership.Entities" Version="1.0.1" />
-    <PackageReference Include="NorthWind.Result.Entities" Version="1.0.0" />
+    <PackageReference Include="NorthWind.Membership.Backend.Core" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>

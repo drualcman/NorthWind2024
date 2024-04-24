@@ -13,7 +13,7 @@ namespace NorthWind.Membership.Backend.AspNetIdentity.Migrations
 {
     [DbContext(typeof(NorthWindMembershipContext))]
     [Migration("20240417013125_initialcreate")]
-    partial class initialcreate
+    partial class Initialcreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

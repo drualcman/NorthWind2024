@@ -1,4 +1,8 @@
-﻿namespace NorthWind.Sales.WebApi;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
+namespace NorthWind.Sales.WebApi;
 
 public static class Startup
 {
@@ -20,6 +24,18 @@ public static class Startup
                 config.AllowAnyOrigin();
             });
         });
+
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                builder.Configuration.GetSection(JwtOptions.SectionKey).Bind(options.TokenValidationParameters);
+                string securityKey = builder.Configuration
+                    .GetSection(JwtOptions.SectionKey)[nameof(JwtOptions.SecurityKey)];
+                byte[] secutiryKeyBytes = Encoding.UTF8.GetBytes(securityKey);
+                options.TokenValidationParameters.IssuerSigningKey = new SymmetricSecurityKey(secutiryKeyBytes);
+            });
+        builder.Services.AddAuthorization();
+
         return builder.Build();
     }
 
@@ -33,6 +49,8 @@ public static class Startup
             app.UseSwaggerUI();
         }
 
+        app.UseAuthentication();
+        app.UseAuthorization();
 
         app.MapNorthWindSalesEndpoints();
         app.UseCors();

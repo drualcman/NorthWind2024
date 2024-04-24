@@ -4,7 +4,8 @@ public static class DependencyContainer
     public static IServiceCollection AddNorthWindSalesServices(this IServiceCollection services,
         Action<DbOptions> configureDbOptions,
         Action<SmtpOptions> configureSmtpOptions,
-        Action<MembershipDbOptions> configureMembershipDbOptions)
+        Action<MembershipDbOptions> configureMembershipDbOptions,
+        Action<JwtOptions> configureJwtOptions)
     {
         services
             .AddSalesUseCases()
@@ -22,7 +23,7 @@ public static class DependencyContainer
             .AddDomainLogsServices()
             .AddTransactionServices()
             .AddUserServices()
-            .AddMembershipCoreServices()
+            .AddMembershipCoreServices(configureJwtOptions)
             .AddMembershipIdentityServices(configureMembershipDbOptions);
         return services;
     }

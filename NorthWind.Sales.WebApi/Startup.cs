@@ -9,7 +9,8 @@ public static class Startup
         builder.Services.AddNorthWindSalesServices(
             dbOptions => builder.Configuration.GetSection(DbOptions.SectionKey).Bind(dbOptions),
             smtoOptions => builder.Configuration.GetSection(SmtpOptions.SectionKey).Bind(smtoOptions),
-            membershipOptions => builder.Configuration.GetSection(MembershipDbOptions.SectionKey).Bind(membershipOptions));
+            membershipOptions => builder.Configuration.GetSection(MembershipDbOptions.SectionKey).Bind(membershipOptions),
+            jwtOptions => builder.Configuration.GetSection(JwtOptions.SectionKey).Bind(jwtOptions));
         builder.Services.AddCors(options => 
         {
             options.AddDefaultPolicy(config => 

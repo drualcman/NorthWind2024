@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace NorthWind.Membership.Frondend.RazorViews;
+﻿namespace NorthWind.Membership.Frondend.RazorViews;
 
 public static class DependencyContainer
 {
@@ -15,6 +13,8 @@ public static class DependencyContainer
         services.AddModelValidator<UserRegistrationViewModel, UserRegistrationViewModelDtoValidator>();
         services.AddModelValidator<UserRegistrationViewModel, UerRegistratinoViewModelValidator>();
         services.AddScoped<UserRegistrationViewModel>();
+        services.AddModelValidator<UserLoginViewModel, UserLoginViewModelDtoValidator>();
+        services.AddScoped<UserLoginViewModel>();
         return services;
     }
 }

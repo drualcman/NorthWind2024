@@ -1,13 +1,15 @@
-﻿@page "/user/register"
+﻿@attribute [Route(RouteTemplate)]
 
 <ErrorBoundary @ref=ErrorBoundoryRef>
     <ChildContent>
-        <UserRegistrationComponent ViewModel=ViewModel />
+        <UserLoginComponent ViewModel=ViewModel />
     </ChildContent>
     <ErrorContent>
         <NorthWind.Razor.Components.Exceptions.ExceptionDisplay Exception="context" />
-        <button class="btn btn-danger" @onclick=Recover>
+        <button class="btn bt-danger" @onclick=Recover>
             @CommonMessages.OK
         </button>
     </ErrorContent>
 </ErrorBoundary>
+
+

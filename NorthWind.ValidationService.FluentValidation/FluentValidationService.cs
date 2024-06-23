@@ -6,7 +6,7 @@ internal class FluentValidationService<T> : IValidationService<T>
 
     public IValidationRules<T, TProperty> AddRuleFor<TProperty>(Expression<Func<T, TProperty>> expresion)
         => new ValidationRules<T, TProperty>(Wrapper.RuleFor(expresion));
-    public ICollectionValidationRules<T, TProperty> AddRuleForEch<TProperty>(Expression<Func<T, IEnumerable<TProperty>>> expresion)
+    public ICollectionValidationRules<T, TProperty> AddRuleForEach<TProperty>(Expression<Func<T, IEnumerable<TProperty>>> expresion)
         => new CollectionValidationRules<T, TProperty>(Wrapper.RuleForEach(expresion));
 
     public async Task<IEnumerable<ValidationError>> Validate(T model)
